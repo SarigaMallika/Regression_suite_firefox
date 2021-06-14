@@ -52,7 +52,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 		try {
 			click("request_second_opinion_button");
 			click("create_new_case");
-			System.out.println("click");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -65,7 +64,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			click("so_self_checkbox");
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator","so_proceed_button"))).isEnabled();
 			Assert.assertEquals(true,value); 
-			System.out.println("1");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_001");
@@ -83,14 +81,13 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			fr= driver.findElement(By.xpath(OR_reader("Object_Locator","outer_frame")));
 			driver.switchTo().frame(fr);
 			browser_wait(30);
-			click_javascript("so_don’t_have_doctors_checkbox");
+			click_javascript("so_donâ€™t_have_doctors_checkbox");
 			browser_wait(5);
 			click_javascript("so_i_dont_have_it");
 			click_javascript("so_clinical_details_button");
 			str= driver.findElement(By.xpath(OR_reader("Object_Locator","upload_scan_validation_msg"))).getText();
 			Assert.assertEquals(str,td_reader("upload_scan_validation_msg")); 
 			browser_wait(10);
-			System.out.println("2");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_002");
@@ -101,7 +98,7 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 	@When("User should get a validation message when click on Continue to add clinical details button when the check box I don not have a doctors reports is unchecked")
 	public static void uRequest_second_opinion_negative_tc_003() throws IOException {
 		try {
-			click_javascript("so_don’t_have_doctors_checkbox");
+			click_javascript("so_donâ€™t_have_doctors_checkbox");
 			browser_wait(5);
 			click_javascript("so_clinical_details_button");
 			str= driver.findElement(By.xpath(OR_reader("Object_Locator","upload_scan_validation_msg"))).getText();
@@ -109,7 +106,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			str= driver.findElement(By.xpath(OR_reader("Object_Locator","upload_report_validation_msg"))).getText();
 			Assert.assertEquals(str,td_reader("upload_report_validation_msg")); 
 			browser_wait(10);
-			System.out.println("3");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_003");
@@ -129,7 +125,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			//browser_back();
 			driver.navigate().to(td_reader("rso_add_clinical"));
 			click_javascript("create_new_case");
-			System.out.println("4");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_004");
@@ -141,7 +136,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 	public static void Request_second_opinion_negative_tc_005()  throws IOException {
 		try {
 			click("so_other_checkbox");
-			System.out.println("5");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_005");
@@ -160,7 +154,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			browser_wait(4);
 			browser_refresh();
 			click("create_new_case");
-			System.out.println("6");
 		}catch(Exception e) {
 			takeScreenShot("Request_second_opinion_negative_tc_006");
 		}
@@ -181,7 +174,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			browser_wait(4);
 			browser_refresh();
 			click("create_new_case");
-			System.out.println("7");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_007");
@@ -203,7 +195,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			browser_wait(4);
 			browser_refresh();
 			click("create_new_case");
-			System.out.println("8");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_008");
@@ -227,7 +218,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			browser_wait(4);
 			browser_refresh();
 			click("create_new_case");
-			System.out.println("9");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -250,7 +240,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			browser_wait(4);
 			browser_refresh();
 			click("create_new_case");
-			System.out.println("10");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -270,7 +259,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			click_javascript("so_proceed_button");
 			str= driver.findElement(By.xpath(OR_reader("Object_Locator","so_invalid_last_name"))).getText();
 			Assert.assertEquals(str,td_reader("so_invalid_last_name"));
-			System.out.println("11");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -286,7 +274,6 @@ public class Request_second_opinion_negative_scenarios extends Generic_function{
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator","so_proceed_button"))).isEnabled();
 			Assert.assertEquals(true,value); 
 			browser_wait(10);
-			System.out.println("12");
 		} catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Request_second_opinion_negative_tc_012");
