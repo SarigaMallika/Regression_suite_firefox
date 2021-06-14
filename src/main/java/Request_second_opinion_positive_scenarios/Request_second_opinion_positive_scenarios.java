@@ -16,9 +16,8 @@ import java.io.File;
 public class Request_second_opinion_positive_scenarios extends Generic_function {
 	static boolean value;
 	static String text,month,year,monthval,yearval,te;
-	static WebElement fr,fr1,element,ele;
+	static WebElement fr,fr1,element,ele,temp;
 	static File file;
-
 	/*Browser opens and user is on home page*/ 	
 	@When("User is on home page")
 	public static void user_on_homepage() throws Exception{
@@ -35,7 +34,6 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			e.printStackTrace();
 		}		
 	}
-
 	/* TC_001 -Validate that user must be able to view 'Request for a second opinion' under Home page */
 	@Then("User should redirect to Request a Second Opinion page when clicking on Request a Second Opinion button")
 	public static void request_second_opinion_positive_tc_001() throws Exception {
@@ -45,12 +43,10 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			click("create_new_case");
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "request_second_opinion_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("1");
 		}catch (Exception e) {
 			takeScreenShot("request_second_opinion_positive_tc_001");
 		}	
 	}
-
 	/* TC_002 -Validate that user must be able to view the texts on the landing page */
 	@Then("User should be able to view texts on the page")
 	public static void request_second_opinion_positive_tc_002() throws Exception {
@@ -63,13 +59,11 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			browser_wait(2);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_you_are_about_to_text"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("2");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("request_second_opinion_positive_tc_002");
 		}	
 	}
-
 	/* TC_003 -Validate that user can able to view  box  with  additional information at the bottom of page */
 	@Then("User should be able to view the informations")
 	public static void request_second_opinion_positive_tc_003() throws Exception {
@@ -85,13 +79,11 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			browser_wait(2);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_for_more_info_text"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("3");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("request_second_opinion_positive_tc_003");
 		}	
 	}
-
 	/* TC_004 -Validate that the user should navigated to "Upload Scans " page when "Proceed" button is clicked */
 	@Then("User should be navigated to Upload Scans page by clicking proceed button")
 	public static void request_second_opinion_positive_tc_004() throws Exception {
@@ -105,13 +97,11 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_upload_scans_page_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
 			browser_wait(30);
-			System.out.println("4");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("request_second_opinion_positive_tc_004");
 		}	
 	}
-
 	/* TC_005 -Validate that user should be able to view the bar with Upload Scans as green color at the top of the page and links are working or not */
 	@Then("User should be able to view the bar and links")
 	public static void request_second_opinion_positive_tc_005() throws Exception {
@@ -126,63 +116,60 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_don’t_have_scans_ok"))).isDisplayed();
 			Assert.assertEquals(true,value);
 			click_javascript("so_don’t_have_scans_ok");
-			System.out.println("5");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("request_second_opinion_positive_tc_005");
 		}	
 	}
-
 	/* TC_006 -Validate that the user should be able to upload scans by clicking on Upload my scans button*/
 	@Then("User should be able to upload folder from the system")
 	public static void request_second_opinion_positive_tc_006() throws Exception {
+		
 		try {
-			System.out.println("6.0");
 			click_javascript("so_upload_scans_button");
 			Thread.sleep(4000);
-			System.out.println("6.1");
 			fr1= driver.findElement(By.xpath(OR_reader("Object_Locator","inner_frame")));
 			driver.switchTo().frame(fr1);
-			System.out.println("6.2");
-			Thread.sleep(2000);
+		    Thread.sleep(2000);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			browser_wait(20);
-			System.out.println("6.3");
-			file = new File(getimage());
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_button"))).sendKeys(file.getAbsolutePath());
-			browser_wait(20);
+			Thread.sleep(3000);
+			//driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_button"))).sendKeys(td_reader("C:\\Users\\Admin\\Downloads\\Regression_suite-Sprint5-main\\Images\\I0"));
+			Thread.sleep(3000);
+			   file = new File(getimage());
+			   WebElement elementUpload = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_button")));
+			   WebDriverWait wait=new WebDriverWait(driver, 30);
+ 				elementUpload.sendKeys(file.getAbsolutePath());
 			driver.switchTo().defaultContent();
-			System.out.println("6.4");
 			fr= driver.findElement(By.xpath(OR_reader("Object_Locator","outer_frame")));
 			driver.switchTo().frame(fr);
-			System.out.println("6.5");
-			click_javascript("so_upload_scan_close_button");
-			System.out.println("6");
+			click("so_upload_scan_close_button");
+			System.out.println("4");
 		}catch (Exception e) {
 			e.printStackTrace();
-			takeScreenShot("request_second_opinion_positive_tc_006");
+			takeScreenShot("second_opinion_positive_dashboard_tc_004");
 		}
 	}
-
 	/* TC_007 -Validate that the user should be able to upload reports by clicking on Upload my reports button*/
 	@Then("User should be able to upload file from the system")
 	public static void request_second_opinion_positive_tc_007() throws Exception {
 		try {
 			browser_wait(30);
-			file = new File(getreport());
-			driver.findElement(By.xpath(OR_reader("Object_Locator", "so_upload_report_button"))).sendKeys(file.getAbsolutePath());
+			//driver.findElement(By.xpath(OR_reader("Object_Locator", "so_upload_report_button"))).sendKeys(td_reader("report"));
+			 file = new File(getreport());
+			 WebElement elementUpload = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_upload_report_button")));
+			 WebDriverWait wait=new WebDriverWait(driver, 30);
+			elementUpload.sendKeys(file.getAbsolutePath());
 			Thread.sleep(3000);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_uploaded_report"))).isDisplayed();
 			Assert.assertEquals(true,value);
 			browser_wait(5);
-			System.out.println("7");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("request_second_opinion_positive_tc_007");
 		}
+		
 	}
-
 	/* TC_008 -Validate that the user should be able to view the dialogue box when I do not have a doctor's report checkbox*/
 	@Then("User should be able to view the Upload scans page")
 	public static void request_second_opinion_positive_tc_008() throws Exception {
@@ -197,19 +184,16 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			click_javascript("so_i_dont_have_it");
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_don’t_have_doctors_checkbox"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("8");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("request_second_opinion_positive_tc_008");
 		}
 	}
-
 	/* TC_009 -Validate that the user should navigated to "Upload Scans" page by checking "Other " check box and by entering details.*/
 	@Then("User should be navigated to upload scans page")
 	public static void request_second_opinion_positive_tc_009() throws Exception {
 		try {
-			//browser_back();
-			driver.navigate().to(td_reader("rso_add_clinical"));
+			driver.navigate().to("https://demo.mpowered-health.com/proceedtosecondopinion");
 			click("create_new_case");
 			click("so_other_checkbox");
 			browser_wait(2);
@@ -228,18 +212,16 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 				month = te.split(" ")[0].trim();
 				year = te.split(" ")[1].trim();
 			}
-			System.out.println("9.0");
 			click("so_dob_date");
 			click("so_dob_year_ok");
 			click("so_patient_relationship");
 			text = td_reader("patient_relationship");
-			drop_down(OR_reader("Object_Locator", "so_patient_relationship_list"),text);  
+			drop_down(OR_reader("Object_Locator", "so_patient_relationship_list"),text);
 			driver.findElement(By.xpath(OR_reader("Object_Locator", "so_patient_state"))).sendKeys(td_reader("patient_state"));
 			click("so_patient_gender");
 			text = td_reader("patient_gender");
-			drop_down(OR_reader("Object_Locator", "so_patient_relationship_list"),text); 
+			drop_down(OR_reader("Object_Locator", "so_patient_relationship_list"),text);
 			browser_wait(5);
-			System.out.println("9.1");
 			click("so_other_agree_to_docpanel_checkbox");
 			click("so_iam_legal_guardian_checkbox");
 			click("so_proceed_button");
@@ -250,7 +232,6 @@ public class Request_second_opinion_positive_scenarios extends Generic_function 
 			Assert.assertEquals(true,value);
 			System.out.println("Request a second opinion positive");
 			browser_close();
-			System.out.println("9");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("request_second_opinion_positive_tc_009");
