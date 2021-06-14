@@ -8,10 +8,12 @@ import Reusable_Functions.Generic_function;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import java.io.File;
 
 public class Second_opinion_dashboard_positive_scenarios extends Generic_function {
 	static boolean value;
 	public static WebElement fr1, fr,temp;
+	public static File file;
 
 	/* Browser opens and enter URL*/ 	
 	@Given("Browser is open and User clicks on the login button and navigated to the login page")
@@ -77,10 +79,10 @@ public class Second_opinion_dashboard_positive_scenarios extends Generic_functio
 			browser_wait(30);
 			click_javascript("so_close_button");
 			browser_wait(30);
-			click_javascript("so_don’t_have_scans_link");
-			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_don’t_have_scans_ok"))).isDisplayed();
+			click_javascript("so_donâ€™t_have_scans_link");
+			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_donâ€™t_have_scans_ok"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			click_javascript("so_don’t_have_scans_ok");
+			click_javascript("so_donâ€™t_have_scans_ok");
 			System.out.println("3");
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -101,14 +103,15 @@ public class Second_opinion_dashboard_positive_scenarios extends Generic_functio
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
 			browser_wait(20);
-			//driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_button"))).sendKeys(td_reader("scans"));
+			//file = new File(getimage());
+			//driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_button"))).sendKeys(file.getAbsolutePath());
 			temp = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_choose_file_title")));            //Upload button
 			temp.click();
 			browser_wait(20);
 			driver.switchTo().defaultContent();
 			fr= driver.findElement(By.xpath(OR_reader("Object_Locator","outer_frame")));
 			driver.switchTo().frame(fr);
-			//click_javascript("so_upload_scan_close_button");
+			click_javascript("so_upload_scan_close_button");
 			System.out.println("4");
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -121,14 +124,14 @@ public class Second_opinion_dashboard_positive_scenarios extends Generic_functio
 	public static void second_opinion_positive_dashboard_tc_005() throws Exception {
 		try {
 			browser_wait(20);
-			click_javascript("so_don’t_have_doctors_checkbox");
+			click_javascript("so_donâ€™t_have_doctors_checkbox");
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_upload_report"))).isDisplayed();
 			Assert.assertEquals(true,value);
 			click_javascript("so_upload_report");
-			click_javascript("so_don’t_have_doctors_checkbox");
-			click_javascript("so_don’t_have_doctors_checkbox");
+			click_javascript("so_donâ€™t_have_doctors_checkbox");
+			click_javascript("so_donâ€™t_have_doctors_checkbox");
 			click_javascript("so_i_dont_have_it");
-			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_don’t_have_doctors_checkbox"))).isDisplayed();
+			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_donâ€™t_have_doctors_checkbox"))).isDisplayed();
 			Assert.assertEquals(true,value);
 			System.out.println("5");
 		}catch (Exception e) {
@@ -142,8 +145,9 @@ public class Second_opinion_dashboard_positive_scenarios extends Generic_functio
 	public static void second_opinion_positive_dashboard_tc_006() throws Exception {
 		try {
 			browser_wait(30);
+			file = new File(getreport());
 			temp = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_upload_report_button")));
-			temp.sendKeys(td_reader("report"));
+			temp.sendKeys(file.getAbsolutePath());
 			Thread.sleep(3000);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "so_uploaded_report"))).isDisplayed();
 			Assert.assertEquals(true,value);
