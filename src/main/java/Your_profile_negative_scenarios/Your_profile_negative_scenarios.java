@@ -10,10 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import Reusable_Functions.Generic_function;
 import io.cucumber.java.en.When;
+import java.io.File;
 
 public class Your_profile_negative_scenarios extends Generic_function {
 	public static boolean value;
 	public static String str,path;
+	public static File file;
 
 	/*Browser opens and user is on your profile page */ 	
 	@When("User is on home page and clicks on your profile")
@@ -458,8 +460,8 @@ public class Your_profile_negative_scenarios extends Generic_function {
 			click("profile_picture");
 			click("profile_upload_image");
 			click("profile_files");
-			path=td_reader("image_path");
-			StringSelection ss = new StringSelection(path);
+			file = new File(getprofilepic());
+			StringSelection ss = new StringSelection(file.getAbsolutePath());
 		     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 		     Robot robot = new Robot();
 		     robot.delay(250);
