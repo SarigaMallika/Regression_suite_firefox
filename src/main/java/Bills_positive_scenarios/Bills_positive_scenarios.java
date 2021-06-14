@@ -38,7 +38,6 @@ public class Bills_positive_scenarios extends Generic_function{
 				browser_wait(20);
 				click("services");
 				click("bills_title_services");
-				System.out.println("1");
 			} catch (IOException e) {
 				e.getMessage();
 				takeScreenShot("bills_positive_tc_001");
@@ -51,7 +50,6 @@ public class Bills_positive_scenarios extends Generic_function{
 			try {
 				value = driver.findElement(By.xpath(OR_reader("Object_Locator", "bills_due_amount"))).isDisplayed();
 				Assert.assertEquals(true,value);
-				System.out.println("2");
 			}catch (Exception e) {
 				e.getMessage();
 				takeScreenShot("bills_negative_tc_002");
@@ -65,7 +63,6 @@ public class Bills_positive_scenarios extends Generic_function{
 				click("bills_dropdown");
 				text = td_reader("bills_dropdown_option");
 				drop_down(OR_reader("Object_Locator", "bills_dropdown_box"),text);
-				System.out.println("3");
 			}catch (Exception e) {
 				e.getMessage();
 				takeScreenShot("bills_positive_tc_003");
@@ -81,7 +78,6 @@ public class Bills_positive_scenarios extends Generic_function{
 				click_javascript("bills_paid_section");
 				value = driver.findElement(By.xpath(OR_reader("Object_Locator", "bills_paid_message"))).isDisplayed();
 				Assert.assertEquals(true,value);
-				System.out.println("4");
 			}catch (Exception e) {
 				e.getMessage();
 				takeScreenShot("bills_positive_tc_004");
@@ -101,7 +97,6 @@ public class Bills_positive_scenarios extends Generic_function{
 				else{
 					chrome_edge_slide(from,to);
 				}
-				System.out.println("5");
 			}catch (Exception e) {
 				e.getMessage();
 				takeScreenShot("bills_positive_tc_005");
@@ -115,7 +110,6 @@ public class Bills_positive_scenarios extends Generic_function{
 				click("bills_pay_a_bill_button");
 				value = driver.findElement(By.xpath(OR_reader("Object_Locator", "bills_due_message"))).isDisplayed();
 				Assert.assertEquals(true,value);
-				System.out.println("6");
 			}catch (Exception e) {
 				e.getMessage();
 				takeScreenShot("bills_positive_tc_006");
@@ -137,7 +131,6 @@ public class Bills_positive_scenarios extends Generic_function{
 					chrome_edge_slide(from, to);
 				}
 				click("bills_explore_services_button");
-				System.out.println("7");
 			}catch (Exception e) {
 				e.getMessage();
 				takeScreenShot("bills_positive_tc_007");
@@ -148,7 +141,6 @@ public class Bills_positive_scenarios extends Generic_function{
 		@Given("you have no expenditures yet. Use a service or upload a bill to pay message should be displayed on the page")
 		public void bills_positive_tc_008() throws Exception {
 			try {
-				System.out.println("8.0");
 				click("services");
 				click("bills_title_services");
 				from = driver.findElement(By.xpath(OR_reader("Object_locator", "bills_carousel_from")));
@@ -161,17 +153,15 @@ public class Bills_positive_scenarios extends Generic_function{
 				else{
 					chrome_edge_slide(from, to);
 				}
-				System.out.println("8.1");
 				str= driver.findElement(By.xpath(OR_reader("Object_Locator","bills_zero_expenditure_msg"))).getText();
 				Assert.assertEquals(str,td_reader("bills_zero_expenditure_msg"));
 				value = driver.findElement(By.xpath(OR_reader("Object_Locator", "bills_zero_expenditure_img"))).isDisplayed();
 				Assert.assertEquals(true,value);
 				System.out.println("Bills positive");
 				browser_close();
-				System.out.println("8");
 			}catch (Exception e) {
 				e.getMessage();
-				takeScreenShot("bills_positive_tc_007");
+				takeScreenShot("bills_positive_tc_008");
 			}	
 		}
 }
