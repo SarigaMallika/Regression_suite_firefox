@@ -51,7 +51,6 @@ public class Award_points_positive_scenarios extends Generic_function{
 			browser_wait(12);
 			click("utilities");
 			browser_wait(20);
-			System.out.println("1");
 		} catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Award_point_positive_tc_001()");
@@ -70,7 +69,6 @@ public class Award_points_positive_scenarios extends Generic_function{
 			Assert.assertEquals(true,value);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "your_award_point_history"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("2");
 		}catch (Exception e) {
 			takeScreenShot("Award_point_positive_tc_002()");
 		}	
@@ -102,7 +100,6 @@ public class Award_points_positive_scenarios extends Generic_function{
   			click("redeem_points_email");
 //  			click("redeem_points");
      		Thread.sleep(6000);
-     		System.out.println("3");
 			}
 		  catch (Exception e) {
 			e.printStackTrace();
@@ -114,17 +111,17 @@ public class Award_points_positive_scenarios extends Generic_function{
 	@When("User should be able to navigated to the redeemed page successfully")
 	public static void Award_point_positive_tc_004() throws IOException {
 		try {
-//			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "redeemed_title"))).isDisplayed();
-//			Assert.assertEquals(true,value);
-//		    browser_wait(20);
-//			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "redeemed_points"))).isDisplayed();
-//			Assert.assertEquals(true,value);
-//			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "availed_gift"))).isDisplayed();
-//			Assert.assertEquals(true,value);
-//			click("goto_dashboard_button");
-//			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "your_award_point_history"))).isDisplayed();
-//			Assert.assertEquals(true,value);
-//			Thread.sleep(5000);
+			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "redeemed_title"))).isDisplayed();
+			Assert.assertEquals(true,value);
+		        browser_wait(20);
+			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "redeemed_points"))).isDisplayed();
+			Assert.assertEquals(true,value);
+			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "availed_gift"))).isDisplayed();
+			Assert.assertEquals(true,value);
+			click("goto_dashboard_button");
+			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "your_award_point_history"))).isDisplayed();
+			Assert.assertEquals(true,value);
+			Thread.sleep(5000);
 			System.out.println("Award points positive");
 			browser_close();
 			System.out.println("4");
