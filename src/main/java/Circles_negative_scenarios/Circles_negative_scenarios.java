@@ -71,7 +71,6 @@ public class Circles_negative_scenarios extends Generic_function{
 	@Given("Enter incorrect data in the  Username and Password field and verify that the user is getting the validation message")
 	public void circle_positive_tc_003() throws Exception {
 		try {
-				//url open mymed.gov
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_username"))).sendKeys(td_reader("mymed_username",0));
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_password"))).sendKeys(td_reader("mymed_password",0));
 			click("mymed_login");
@@ -89,7 +88,6 @@ public class Circles_negative_scenarios extends Generic_function{
 	@Given("User will get validation message when Username field is blank")
 	public void circle_positive_tc_004() throws Exception {
 		try {
-			//url open mymed.gov
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_password"))).sendKeys(td_reader("mymed_password",0));
 			click("mymed_login");
 			field_clear("mymed_username");
@@ -106,7 +104,6 @@ public class Circles_negative_scenarios extends Generic_function{
 	@Given("User will get validation message when Password field is blank")
 	public void circle_positive_tc_005() throws Exception {
 		try {
-			//url open mymed.gov
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_username"))).sendKeys(td_reader("mymed_username",0));
 			click("mymed_login");
 			field_clear("mymed_username");
@@ -123,7 +120,6 @@ public class Circles_negative_scenarios extends Generic_function{
 	@Given("User will get a validation message when login with valid Usename and invalid Password")
 	public void circle_positive_tc_006() throws Exception {
 		try {
-			//url open mymed.gov
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_username"))).sendKeys(td_reader("mymed_username",1));
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_password"))).sendKeys(td_reader("mymed_password",0));
 			click("mymed_login");
@@ -141,7 +137,6 @@ public class Circles_negative_scenarios extends Generic_function{
 	@Given("User will get a validation message when login with invalid Usename and valid Password")
 	public void circle_positive_tc_007() throws Exception {
 		try {
-			//url open mymed.gov
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_username"))).sendKeys(td_reader("mymed_username",0));
 			driver.findElement(By.xpath(OR_reader("Object_Locator","mymed_password"))).sendKeys(td_reader("mymed_password",1));
 			click("mymed_login");
