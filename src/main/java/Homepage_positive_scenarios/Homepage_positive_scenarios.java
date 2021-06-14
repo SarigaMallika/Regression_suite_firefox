@@ -28,7 +28,6 @@ public class Homepage_positive_scenarios extends Generic_function {
 			click("welcome_login");
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "login_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("1");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_001");
@@ -42,7 +41,6 @@ public class Homepage_positive_scenarios extends Generic_function {
 			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",8));
 			click("login");
 			browser_wait(12);
-			System.out.println("2");
 		} catch (IOException e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_002");
@@ -55,7 +53,6 @@ public class Homepage_positive_scenarios extends Generic_function {
 		
 		try {
 			grid_tiles(OR_reader("Object_Locator", "grid_path"));
-			System.out.println("3");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_003");
@@ -74,7 +71,6 @@ public class Homepage_positive_scenarios extends Generic_function {
 				Assert.assertEquals(true,value1);
 				Thread.sleep(2000);
 				browser_back();
-				System.out.println("4");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_004");
@@ -94,7 +90,6 @@ public class Homepage_positive_scenarios extends Generic_function {
 			browser_back();
 			System.out.println("home positive");
 			browser_close();
-			System.out.println("5");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_005");
