@@ -22,7 +22,7 @@ public class Headerpage_positive_scenarios extends Generic_function {
 			}
 			}
 	
-	/*TC 001 - Validate that the  'mpowered health’ logo  should be present in the header*/
+	/*TC 001 - Validate that the  'mpowered healthâ€™ logo  should be present in the header*/
 	@Then("check the mpowered health logo  should be present in the header")
 	public static void header_positive_tc_001() throws IOException {
 		try {
@@ -34,7 +34,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 			 browser_wait(5);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "header_logo"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("1");
 			} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_001");
@@ -47,11 +46,10 @@ public class Headerpage_positive_scenarios extends Generic_function {
 	public static void header_positive_tc_002() throws IOException {
 		try {
 			click("help");
-			  browser_wait(5);
+			browser_wait(5);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "header_frequently_asked"))).isDisplayed();
 			Assert.assertEquals(true,value);
 			browser_back();
-			System.out.println("2");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_002");
@@ -62,12 +60,11 @@ public class Headerpage_positive_scenarios extends Generic_function {
 	@When("User click on Log out icon navigated to the Landing  page")
 	public static void header_positive_tc_003() throws IOException {
 		try {
-			  browser_wait(5);
+			browser_wait(5);
 			click("logout");
-			  browser_wait(5);
+			browser_wait(5);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "welcome_login"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("3");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_003");
@@ -79,14 +76,13 @@ public class Headerpage_positive_scenarios extends Generic_function {
 	public static void header_positive_tc_004() throws IOException {
 		try {
 			click("welcome_login");
-			  browser_wait(5);
+			browser_wait(5);
 			driver.findElement(By.xpath(OR_reader("Object_locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",6));
 			driver.findElement(By.xpath(OR_reader("Object_locator", "login_password"))).sendKeys(td_reader("login_password",7));
 			click("login");
-			  browser_wait(5);
+			browser_wait(5);
 			click("header_alerts");
 			  browser_wait(5);
-			  System.out.println("4");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_004");
@@ -101,7 +97,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 			  browser_wait(5);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "header_profile"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("5");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_005");
@@ -116,7 +111,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 			  browser_wait(5);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "your_profile_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("6");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_006");
@@ -133,7 +127,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 			browser_wait(5);
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "your_ratings_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("7");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_007");
@@ -153,7 +146,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 	    	Assert.assertEquals(true,value);
 	    	browser_close();
 	        browser_switch();
-	        System.out.println("8");
 	     } catch (Exception e) {
 	    	 e.getMessage();
 			takeScreenShot("header_positive_tc_008");
@@ -173,7 +165,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 	    	Assert.assertEquals(true,value);
 	    	browser_close();
 	        browser_switch();
-	        System.out.println("9");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_009");
@@ -191,7 +182,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 			value = driver.findElement(By.xpath(OR_reader("Object_Locator", "privacy_ok"))).isDisplayed();
 	    	Assert.assertEquals(true,value);
 	    	click("privacy_ok");
-	    	System.out.println("10");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_010");
@@ -212,7 +202,6 @@ public class Headerpage_positive_scenarios extends Generic_function {
 	    	click("terms_ok");
 	    	System.out.println("header positive");
 	    	driverquit();
-	    	System.out.println("11");
 		} catch (Exception e) {
 			e.getMessage();
 			takeScreenShot("header_positive_tc_011");
