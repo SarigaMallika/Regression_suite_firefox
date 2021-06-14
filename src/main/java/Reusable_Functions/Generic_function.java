@@ -85,11 +85,8 @@ public class Generic_function {
   	    driver.navigate().to(getURL());	
 	    driver.manage().window().maximize();
 	}
-
+	/*Function will return the name of the browser*/
 	public static String browser_name() {
-				chrome = "chrome";
-				firefox = "geck";
-				edge = "msedge";
 				path = getDriverPath();
 				if(path.contains(edge))
 				{
@@ -107,8 +104,6 @@ public class Generic_function {
 		FileInputStream fileInput;
 		fileInput = new FileInputStream(file);
 		prop.load(fileInput);
-		firefox = "geck";
-		edge = "msedge";
 		path = getDriverPath();
 		if(path.contains(firefox))
 		{
@@ -123,10 +118,8 @@ public class Generic_function {
 		else
 		{
 			System.setProperty("webdriver.chrome.driver",getDriverPath());
-			driver = new ChromeDriver();
-			
+			driver = new ChromeDriver();		
 		}
-		
 		driver.navigate().to(getURL());
 		driver.manage().window().maximize();
 		((JavascriptExecutor)driver).executeScript("window.open()");
@@ -160,8 +153,6 @@ public class Generic_function {
 	/*Bills carousal rotation for chrome browser*/
 	public void firefox_slide(WebElement from)  {
 		try {
-//			from = driver.findElement(By.xpath(OR_reader("Object_locator", "bills_carousel_from")));
-//			to = driver.findElement(By.xpath(OR_reader("Object_locator", "bills_carousel_to")));
 			Actions action = new Actions(driver);
 			action.dragAndDropBy(from, -100, 0).click();
 			action.build().perform();
