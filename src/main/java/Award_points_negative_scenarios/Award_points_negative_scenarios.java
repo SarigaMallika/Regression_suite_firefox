@@ -43,7 +43,6 @@ public class Award_points_negative_scenarios extends Generic_function{
 	@When("User should click on Utilities tab and navigated to Utilities Dashboard")
 	public static void user_should_click_on_utilities_tab_and_navigated_to_utilities_dashboard() throws IOException {
 		try {
-
 			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",10));
 			driver.findElement(By.xpath(OR_reader("Object_Locator", "login_password"))).sendKeys(td_reader("login_password",10));
 			click("login");
@@ -78,7 +77,6 @@ public class Award_points_negative_scenarios extends Generic_function{
   		    str= driver.findElement(By.xpath(OR_reader("Object_Locator","amount_exceed_valid_msg"))).getText();
 			Assert.assertEquals(str,td_reader("Amount exceeds range"));
      		Thread.sleep(4000);
-     		System.out.println("1");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("Award_point_negative_tc_001");
@@ -106,7 +104,6 @@ public class Award_points_negative_scenarios extends Generic_function{
   			str= driver.findElement(By.xpath(OR_reader("Object_Locator","redeem_points_amount_valid_msg"))).getText();
      		Assert.assertEquals(str,td_reader("redeem_points_amount_valid_msg"));   
      		Thread.sleep(2000);
-     		System.out.println("2");
 			}
 		  catch (Exception e) {
 			 e.printStackTrace();
@@ -123,7 +120,6 @@ public class Award_points_negative_scenarios extends Generic_function{
 		value=driver.findElement(By.xpath(OR_reader("Object_Locator", "redeem_points"))).isEnabled();
 		Assert.assertEquals(value,false);
 		Thread.sleep(1000);
-		System.out.println("3");
 		}catch(Exception e) {
 			 e.printStackTrace();
 			takeScreenShot("Award_point_negative_tc_003");
@@ -150,7 +146,6 @@ public class Award_points_negative_scenarios extends Generic_function{
   			Thread.sleep(1000);
   			System.out.println("Award points negative");
   			browser_close();
-  			System.out.println("4");
      		}
 		  catch (Exception e) {
 			  e.printStackTrace();
