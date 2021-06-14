@@ -195,6 +195,28 @@ public class Generic_function {
 		if(dirpath!=null) return dirpath ;
 		else throw new RuntimeException ("user Dir is not specified in the Config.properties");
 	}
+	
+	/* Reading Dicom images folder path  from config.properties   */
+	public static String getimage() {
+	     path= prop.getProperty("Dicom_images");
+		if(path!=null) return path ;
+		else throw new RuntimeException ("Image path is not specified in the Config.properties");
+	}
+	
+	/* Reading Doctor's report file path  from config.properties   */
+	public static String getreport() {
+		 path= prop.getProperty("Report");
+		if(path!=null) return path ;
+		else throw new RuntimeException (" Report path is not specified in the Config.properties");
+	}
+	
+	/* Reading Pofile picture file path  from config.properties   */
+	public static String getprofilepic() {
+		path= prop.getProperty("Profile_pic");
+		if(path!=null) return path ;
+		else throw new RuntimeException ("Profile pic is not specified in the Config.properties");
+	}
+
 
 	/*  Taking Screenshot of failed test cases  */
 	public static  void takeScreenShot(String fileName) throws IOException {
